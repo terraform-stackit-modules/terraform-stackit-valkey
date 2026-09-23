@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.0 (2026-09-23)
+
+### Features
+
+* Initial STACKIT Valkey module ([90dd762](https://github.com/terraform-stackit-modules/terraform-stackit-valkey/commit/90dd762d32ec7b8c031fcad92f594c169ffd12de))
+
 ## [1.0.1](https://github.com/terraform-stackit-modules/terraform-repo-template/compare/v1.0.0...v1.0.1) (2026-09-09)
 
 ### Bug Fixes
