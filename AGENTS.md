@@ -7,6 +7,32 @@ This file provides context and instructions for AI coding agents (Copilot, Curso
 This is a Terraform module for [STACKIT](https://www.stackit.de/en/), the cloud platform by Schwarz Group.
 It is part of the [terraform-stackit-modules](https://github.com/terraform-stackit-modules) organization, which aims to provide community-maintained, production-grade Terraform modules for STACKIT.
 
+### This module: valkey
+
+Composite module for STACKIT **Valkey** (instance + credentials). Valkey is the successor to Redis
+(`stackit_redis_*` is deprecated, removed after Aug 2027) — this is the recommended module for new
+workloads; `terraform-stackit-redis` is kept only for legacy migration. Same shape as redis/mariadb.
+
+**Sub-modules**
+- `modules/instance` — `stackit_valkey_instance` (toggled by `create_instance` via `count`).
+- `modules/credential` — `stackit_valkey_credential` (`for_each` over `credentials`).
+
+**Key inputs** — `project_id` (req), `region`, `create_instance`/`instance_id`, `name`,
+`valkey_version` (e.g. "7", NOT "7.2" — the API rejects minor versions), `plan_name`,
+`parameters` (object: sgw_acl, enable_monitoring, monitoring_instance_id, graphite,
+metrics_frequency, metrics_prefix, max_disk_threshold, maxclients, maxmemory_policy, syslog),
+`credentials` (map keyed by stable id: `{rotate_when_changed?}`).
+
+**Outputs** — `instance_id`, `plan_id`, `dashboard_url`, `credential_ids`, `credential_usernames`,
+`credential_passwords` (sensitive), `credential_uris` (sensitive).
+
+**Gotchas**
+- No database/user resources — access via `stackit_valkey_credential` (auto-generated user/pass).
+- `version` must be a MAJOR only (e.g. "7"); "7.2" fails with "couldn't find version".
+- `credentials` keyed by a stable id; instance_id (known-after-apply) is only an attribute.
+  Root uses `coalesce(module.instance.instance_id, var.instance_id)`.
+- password/uri outputs are `sensitive = true`.
+
 ## Repository structure
 
 ```
