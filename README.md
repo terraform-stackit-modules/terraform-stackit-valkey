@@ -6,6 +6,7 @@ Terraform module which provisions a [STACKIT Valkey](https://registry.terraform.
 Valkey is the successor to STACKIT's Redis offering (the `stackit_redis_*` resources are deprecated and will be removed after August 2027). Prefer this module over `terraform-stackit-redis` for new workloads.
 
 [![Terraform Registry](https://img.shields.io/github/v/release/terraform-stackit-modules/terraform-stackit-valkey?label=registry&color=7B42BC&logo=terraform&logoColor=white&style=flat)](https://registry.terraform.io/modules/terraform-stackit-modules/valkey/stackit/latest)
+[![OpenTofu Registry](https://img.shields.io/badge/OpenTofu-Registry-FF643B?style=flat&logo=opentofu&logoColor=white)](https://registry.opentofu.org/modules/terraform-stackit-modules/valkey/stackit/latest)
 [![License](https://img.shields.io/github/license/terraform-stackit-modules/terraform-stackit-valkey)](./LICENSE)
 
 This repository is not from the official STACKIT organization.
