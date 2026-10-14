@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/terraform-stackit-modules/terraform-stackit-valkey/compare/v1.0.0...v1.1.0) (2026-10-14)
+
+### Features
+
+* Harmonize module README and fix lock-threads workflow permissions ([e15c027](https://github.com/terraform-stackit-modules/terraform-stackit-valkey/commit/e15c027ec3cd5a32407ef4ac1e1b83f575e42c95))
+* Harmonize module README and fix lock-threads workflow permissions ([e74b87b](https://github.com/terraform-stackit-modules/terraform-stackit-valkey/commit/e74b87b524967d8afe8693601d2292f0b1d45bd5))
+
 ## 1.0.0 (2026-09-23)
 
 ### Features
